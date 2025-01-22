@@ -18,12 +18,12 @@ fetch("https://striveschool-api.herokuapp.com/books")
       card.classList.add("col");
 
       const div = document.createElement("div");
-      div.classList.add("card", "height");
+      div.classList.add("card");
 
       card.appendChild(div);
 
       const img = document.createElement("img");
-      img.classList.add("card-img-top");
+      img.classList.add("card-img-top", "books");
       img.src = books.img;
 
       div.appendChild(img);
@@ -34,7 +34,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       div.appendChild(div2);
 
       const title = document.createElement("h5");
-      title.classList.add("card-title");
+      title.classList.add("card-title", "libreria");
       title.innerHTML = books.title;
 
       div2.appendChild(title);
@@ -47,13 +47,13 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
       const button = document.createElement("a");
       button.innerText = "Acquista";
-      button.classList.add("btn", "btn-primary");
+      button.classList.add("btn", "btn-success");
 
       div2.appendChild(button);
 
       const button2 = document.createElement("a");
       button2.innerText = "Elimina";
-      button2.classList.add("delete", "btn", "btn-primary", "ms-4");
+      button2.classList.add("delete", "btn", "btn-danger");
 
       div2.appendChild(button2);
 
