@@ -99,9 +99,3 @@ fetch("https://striveschool-api.herokuapp.com/books")
   })
 
   .catch((err) => console.log(err));
-//FUNZIONE DEL BUTTON SCARTA CHE TRAMITE LA CLASSE DATA ALLA CARD DA UN DISPLAY NONE
-function elimina() {
-  card.classList("delete");
-}
-//CLICK DEL BUTTON2 CHE FA PARTIRE LA FUNZIONE
-button2.onclick = elimina();
