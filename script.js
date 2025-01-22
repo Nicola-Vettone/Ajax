@@ -15,7 +15,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       console.log(books);
 
       const card = document.createElement("div");
-      card.classList.add("col", "books", "mt-5");
+      card.classList.add("col", "books", "my-5");
 
       const div = document.createElement("div");
       div.classList.add("card");
@@ -54,8 +54,13 @@ fetch("https://striveschool-api.herokuapp.com/books")
       const button2 = document.createElement("a");
       button2.innerText = "Scarta";
       button2.classList.add("btn", "btn-danger");
-
       div2.appendChild(button2);
+
+      const button3 = document.createElement("a");
+      button3.innerText = "Rimuovi dal carrello";
+      button3.classList.add("btn", "btn-warning", "mt-1");
+
+      div2.appendChild(button3);
 
       libreria.appendChild(card);
 
@@ -71,7 +76,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       function acquista() {
         const lista = document.createElement("li");
         lista.classList.add("dropdown-item");
-        lista.innerHTML = `($books.title)`;
+        lista.innerHTML = `<strong>${books.title}&nbsp;£${books.price}</strong>`;
         carrello.appendChild(lista);
       }
       button.onclick = function () {
