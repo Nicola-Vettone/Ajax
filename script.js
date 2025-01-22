@@ -57,24 +57,25 @@ fetch("https://striveschool-api.herokuapp.com/books")
       div2.appendChild(button2);
 
       const button3 = document.createElement("a");
-      button3.innerText = "Rimuovi dal carrello";
-      button3.classList.add("btn", "btn-warning", "mt-1");
-
-      div2.appendChild(button3);
 
       libreria.appendChild(card);
 
       function elimina() {
         card.classList.add("delete");
+        lista.innerHTML = "";
       }
 
       button2.onclick = function () {
         elimina();
       };
       let carrello = document.querySelector("#carrello");
+      const lista = document.createElement("li");
 
       function acquista() {
-        const lista = document.createElement("li");
+        button3.innerText = "Rimuovi dal carrello";
+        button3.classList.add("btn", "btn-warning", "mt-1");
+
+        div2.appendChild(button3);
         lista.classList.add("dropdown-item");
         lista.innerHTML = `<strong>${books.title}&nbsp;£${books.price}</strong>`;
         carrello.appendChild(lista);
@@ -82,8 +83,19 @@ fetch("https://striveschool-api.herokuapp.com/books")
       button.onclick = function () {
         acquista();
       };
+
+      function remouveCarr() {
+        lista.innerHTML = "";
+        button3.classList.add("bg-success");
+        button3.innerText = "Elemente Rimosso";
+      }
+
+      button3.onclick = function () {
+        remouveCarr();
+      };
     });
   })
+
   .catch((err) => console.log(err));
 function elimina() {
   card.classList("delete");
