@@ -13,7 +13,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
     libreriaArr.forEach((books) => {
       console.log(books);
-
+      //DICHIARO E APPENDO GLI ELEMENTI
       const card = document.createElement("div");
       card.classList.add("col", "books", "my-5");
 
@@ -59,18 +59,19 @@ fetch("https://striveschool-api.herokuapp.com/books")
       const button3 = document.createElement("a");
 
       libreria.appendChild(card);
-
+      //FUNZIONE DEL BUTTON3 PER ELIMINARE LA CARD
       function elimina() {
         card.classList.add("delete");
         lista.innerHTML = "";
       }
-
+      //CLICK DEL BUTTON2 CHE RICHIAMA LA FUNZIONE
       button2.onclick = function () {
         elimina();
       };
+
       let carrello = document.querySelector("#carrello");
       const lista = document.createElement("li");
-
+      //FUNZIONE BUTTON PER METTERE NEL CARRELLO E SUCCESSIVAMENTE CREA UN ALTRO BUTTON PER RIMUOVERE DAL CARRELLO
       function acquista() {
         button3.innerText = "Rimuovi dal carrello";
         button3.classList.add("btn", "btn-warning", "mt-1");
@@ -80,15 +81,17 @@ fetch("https://striveschool-api.herokuapp.com/books")
         lista.innerHTML = `<strong>${books.title}&nbsp;£${books.price}</strong>`;
         carrello.appendChild(lista);
       }
+      //CLICK BUTTON PER FAR PARTIRE LA FUNZIONE ACQUISTA
+
       button.onclick = function () {
         acquista();
       };
-
+      //FUNZIONE PER RIMUOVERE GLI ELEMENTI DEL CARRELLO
       function remouveCarr() {
         lista.innerHTML = "";
         button3.innerText = "Elemente Rimosso";
       }
-
+      //CLICK DEL BUTTON3 PER FAR PARTIRE LA FUNZIONE
       button3.onclick = function () {
         remouveCarr();
       };
@@ -96,7 +99,9 @@ fetch("https://striveschool-api.herokuapp.com/books")
   })
 
   .catch((err) => console.log(err));
+//FUNZIONE DEL BUTTON SCARTA CHE TRAMITE LA CLASSE DATA ALLA CARD DA UN DISPLAY NONE
 function elimina() {
   card.classList("delete");
 }
+//CLICK DEL BUTTON2 CHE FA PARTIRE LA FUNZIONE
 button2.onclick = elimina();
