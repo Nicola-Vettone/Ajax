@@ -17,14 +17,39 @@ fetch("https://striveschool-api.herokuapp.com/books")
       const card = document.createElement("div");
       card.classList.add("col");
 
-      card.innerHTML = `<div class="card"">
-  <img src="${books.img}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${books.title}</h5>
-    <p class="card-text">${books.price}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>`;
+      const div = document.createElement("div");
+      div.classList.add("card");
+
+      card.appendChild(div);
+
+      const img = document.createElement("img");
+      img.classList.add("card-img-top");
+      img.src = books.img;
+
+      div.appendChild(img);
+
+      const div2 = document.createElement("div");
+      div2.classList.add("card-body");
+
+      div.appendChild(div2);
+
+      const title = document.createElement("h5");
+      title.classList.add("card-title");
+      title.innerHTML = books.title;
+
+      div2.appendChild(title);
+
+      const price = document.createElement("p");
+      price.classList.add("card-text");
+      price.innerHTML = `Prezzo: ${books.price}€`;
+
+      div2.appendChild(price);
+
+      const button = document.createElement("a");
+      button.classList.add("btn", "btn-primary");
+
+      div2.appendChild(button);
+
       libreria.appendChild(card);
     });
   })
