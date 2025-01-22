@@ -23,7 +23,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       card.appendChild(div);
 
       const img = document.createElement("img");
-      img.classList.add("card-img-top", "books");
+      img.classList.add("card-img-top");
       img.src = books.img;
 
       div.appendChild(img);
@@ -53,11 +53,23 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
       const button2 = document.createElement("a");
       button2.innerText = "Elimina";
-      button2.classList.add("delete", "btn", "btn-danger");
+      button2.classList.add("btn", "btn-danger");
 
       div2.appendChild(button2);
 
       libreria.appendChild(card);
+
+      function elimina() {
+        card.classList.add("delete");
+      }
+
+      button2.onclick = function () {
+        elimina();
+      };
     });
   })
   .catch((err) => console.log(err));
+function elimina() {
+  card.classList("delete");
+}
+button2.onclick = elimina();
