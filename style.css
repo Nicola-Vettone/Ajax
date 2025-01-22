@@ -1,3 +1,10 @@
 .delete {
   display: none;
 }
+.books {
+  max-height: 400px;
+}
+img {
+  max-height: 250px;
+  object-fit: contain;
+}

@@ -15,7 +15,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       console.log(books);
 
       const card = document.createElement("div");
-      card.classList.add("col");
+      card.classList.add("col", "books", "mt-5");
 
       const div = document.createElement("div");
       div.classList.add("card");
@@ -23,7 +23,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       card.appendChild(div);
 
       const img = document.createElement("img");
-      img.classList.add("card-img-top");
+      img.classList.add("card-img-top", "image");
       img.src = books.img;
 
       div.appendChild(img);
@@ -52,7 +52,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
       div2.appendChild(button);
 
       const button2 = document.createElement("a");
-      button2.innerText = "Elimina";
+      button2.innerText = "Scarta";
       button2.classList.add("btn", "btn-danger");
 
       div2.appendChild(button2);
@@ -65,6 +65,17 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
       button2.onclick = function () {
         elimina();
+      };
+      let carrello = document.querySelector("#carrello");
+
+      function acquista() {
+        const lista = document.createElement("li");
+        lista.classList.add("dropdown-item");
+        lista.innerHTML = `($books.title)`;
+        carrello.appendChild(lista);
+      }
+      button.onclick = function () {
+        acquista();
       };
     });
   })
