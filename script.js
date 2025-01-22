@@ -86,7 +86,6 @@ fetch("https://striveschool-api.herokuapp.com/books")
 
       function remouveCarr() {
         lista.innerHTML = "";
-        button3.classList.add("bg-success");
         button3.innerText = "Elemente Rimosso";
       }
 
